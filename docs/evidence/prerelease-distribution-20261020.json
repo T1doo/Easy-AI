@@ -1,0 +1,716 @@
+{
+  "schemaVersion": 1,
+  "dateUTC": "2026-10-20",
+  "scope": "source/build recipe and historical package license investigation; NOT exact current Windows package audit",
+  "target": {
+    "sourceCommit": "1e427fb49e444f7feea451cbffd4353e8e969bed",
+    "runId": "39425106599",
+    "artifactId": "12265522152",
+    "archive": {
+      "name": "easyai-0.0.0-win-x64.zip",
+      "bytesReportedByCI": 435284263,
+      "sha256ReportedByCI": "ed31980b5df073cc070eec9b06428bb857d547f47c677cde23647ea2fb7812ea"
+    },
+    "bytesObtainedHere": false,
+    "localExactPackageAuditPassed": false,
+    "downloadRetriedThisReview": false,
+    "ciRerunThisReview": false,
+    "releaseCreatedThisReview": false,
+    "legalReviewComplete": false,
+    "distributionReady": false
+  },
+  "sourceInputHashes": {
+    "docs/v0.0.0 plan.md": "dade1fcaadac319e130de415b48154601254dcae9b148a2d42475fb82205fa43",
+    "docs/v0.0.0.md": "5808fb59fb32917ef92d6a516609d51adecc8830fa1bb736222b43f1a134b190",
+    "apps/desktop/package.json": "ca464f9a52e163b670e7ac1f3b3edd8f2e1a4a78ed0b4a78e15c103b5e22b511",
+    "pnpm-lock.yaml": "886aa7c3d4943909de165f313ac3eaae1260e0b4cd2849995cd960ddc40e046c",
+    "services/backend/pyproject.toml": "02510fafd43e95ad0abce5181d67d63e72bd8c398ec971d9afa36eef029023ee",
+    "services/backend/uv.lock": "7a04b74c033975f0bdea0c4cc7f828d15edd36efc4abaa2d83fcf10a9f9bf77c",
+    "scripts/python-task.mjs": "e1d8357f1af899f7ec6a593ea18eb440babe63322348a08d4eff40d8316b54c8",
+    "scripts/package-inputs.mjs": "0dddc7d4f466e93a09cc11e7dd8097923e2383ed2f31ea9220cc05ca05469915",
+    "scripts/package.mjs": "9b0e96e91a0f1bca4f3d6621fbf64138f569df7dcf5d642f0fd53fb76655dce5",
+    "scripts/package-builder.mjs": "e5c5613e6021bf26c5d36f084e8ec668cb483067902738237a5bbcf38f316747",
+    ".github/workflows/ci.yml": "9912ac4b60882c09b61fc3dab2c81216ab06a7c7c9ded3201b7c752ec56f05f4"
+  },
+  "buildRecipe": {
+    "sidecar": "PyInstaller --onedir, default PYZ, no Paramiko external-source collection mode",
+    "pyinstallerVersion": "6.18.0",
+    "windowsPythonVersionFromCurrentCILog": "3.11.9",
+    "electronVersion": "44.9.0",
+    "paramikoVersion": "4.0.0",
+    "paramikoSdistFromLockNotDownloaded": {
+      "url": "https://files.pythonhosted.org/packages/1f/e7/81fdcbc7f190cdb058cffc9431587eb289833bdd633e2002455ca9bb13d4/paramiko-4.0.0.tar.gz",
+      "hash": "sha256:6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f",
+      "size": 1630743,
+      "upload-time": "2025-08-04T01:02:03.711Z"
+    },
+    "upstreamElectronFfmpegBranding": "Chrome",
+    "upstreamElectronProprietaryCodecs": true,
+    "upstreamFfmpegGplOrNonfreeConfigurationVerified": false,
+    "upstreamChromiumVersion": "152.0.7977.167",
+    "upstreamNodeVersion": "v24.22.0",
+    "upstreamFfmpegRevision": "2b68d2babae73714846961fb0ee47e3b3d2e39a9",
+    "electronFfmpegPatchNames": [
+      "link_with_loader_path.patch"
+    ],
+    "electronFfmpegPatchEffectObserved": "macOS-only install_name link condition; not full source/binary correspondence proof"
+  },
+  "historicalPackage": {
+    "sourceCommit": "43474263d8b61ab12bc50ef554259013c4a326d6",
+    "archiveSha256PreviouslyVerified": "4779ee31b553f8a09690cf1a59af36ace910998d405b31e90c8cb1301d5c2200",
+    "methodThisReview": "ZIP central directory and selected entry reads; PyInstaller CArchiveReader/PYZ directory only; no bundled code executed",
+    "sidecarPyzArchive": "PYZ.pyz",
+    "paramikoModuleCountInPyz": 43,
+    "paramikoSourceDirectoryOutsidePyz": false,
+    "runtimeToolRootsObservedInPyz": [
+      "cryptography",
+      "librt",
+      "mypy",
+      "paramiko"
+    ],
+    "pyinstallerPackageRootObservedInPyz": false,
+    "nativeEntryCount": 151,
+    "nativePaths": [
+      "d3dcompiler_47.dll",
+      "dxcompiler.dll",
+      "dxil.dll",
+      "easyai.exe",
+      "ffmpeg.dll",
+      "resources/backend/easyai-sidecar.exe",
+      "resources/backend/_internal/api-ms-win-core-console-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-datetime-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-debug-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-errorhandling-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-fibers-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-fibers-l1-1-1.dll",
+      "resources/backend/_internal/api-ms-win-core-file-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-file-l1-2-0.dll",
+      "resources/backend/_internal/api-ms-win-core-file-l2-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-handle-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-heap-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-interlocked-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "resources/backend/_internal/api-ms-win-core-libraryloader-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-localization-l1-2-0.dll",
+      "resources/backend/_internal/api-ms-win-core-memory-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-namedpipe-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-processenvironment-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-processthreads-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-processthreads-l1-1-1.dll",
+      "resources/backend/_internal/api-ms-win-core-profile-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-string-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-synch-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-synch-l1-2-0.dll",
+      "resources/backend/_internal/api-ms-win-core-sysinfo-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-sysinfo-l1-2-0.dll",
+      "resources/backend/_internal/api-ms-win-core-timezone-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-core-util-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-conio-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-convert-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-environment-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-filesystem-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-heap-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-locale-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-math-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-process-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-runtime-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-stdio-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-string-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-time-l1-1-0.dll",
+      "resources/backend/_internal/api-ms-win-crt-utility-l1-1-0.dll",
+      "resources/backend/_internal/bcrypt/_bcrypt.pyd",
+      "resources/backend/_internal/cryptography/hazmat/bindings/_rust.pyd",
+      "resources/backend/_internal/libcrypto-3.dll",
+      "resources/backend/_internal/libffi-8.dll",
+      "resources/backend/_internal/librt/internal.cp311-win_amd64.pyd",
+      "resources/backend/_internal/libssl-3.dll",
+      "resources/backend/_internal/mypy/applytype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/argmap.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/binder.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/cache.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checker.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checker_shared.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checker_state.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checkexpr.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checkmember.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checkpattern.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/checkstrformat.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/constant_fold.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/constraints.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/copytype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/defaults.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/erasetype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/errorcodes.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/errors.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/error_formatter.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/expandtype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/exprtotype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/fastparse.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/fixup.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/graph_utils.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/infer.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/join.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/literals.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/lookup.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/maptype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/meet.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/messages.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/message_registry.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/mro.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/nodes.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/operators.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/options.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/parse.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/patterns.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/plugin.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/plugins/common.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/plugins/dataclasses.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/plugins/__init__.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/reachability.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/scope.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal_enum.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal_namedtuple.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal_newtype.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal_shared.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/semanal_typeddict.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/server/trigger.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/server/__init__.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/sharedparse.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/solve.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/state.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/strconv.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/subtypes.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/traverser.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/treetransform.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/tvar_scope.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typeanal.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typeops.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/types.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typestate.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/types_utils.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typetraverser.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typevars.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/typevartuples.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/type_visitor.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/util.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/visitor.cp311-win_amd64.pyd",
+      "resources/backend/_internal/mypy/__init__.cp311-win_amd64.pyd",
+      "resources/backend/_internal/nacl/_sodium.pyd",
+      "resources/backend/_internal/pydantic_core/_pydantic_core.cp311-win_amd64.pyd",
+      "resources/backend/_internal/pyexpat.pyd",
+      "resources/backend/_internal/python3.dll",
+      "resources/backend/_internal/python311.dll",
+      "resources/backend/_internal/select.pyd",
+      "resources/backend/_internal/ucrtbase.dll",
+      "resources/backend/_internal/unicodedata.pyd",
+      "resources/backend/_internal/VCRUNTIME140.dll",
+      "resources/backend/_internal/_asyncio.pyd",
+      "resources/backend/_internal/_bz2.pyd",
+      "resources/backend/_internal/_cffi_backend.cp311-win_amd64.pyd",
+      "resources/backend/_internal/_ctypes.pyd",
+      "resources/backend/_internal/_decimal.pyd",
+      "resources/backend/_internal/_hashlib.pyd",
+      "resources/backend/_internal/_lzma.pyd",
+      "resources/backend/_internal/_multiprocessing.pyd",
+      "resources/backend/_internal/_overlapped.pyd",
+      "resources/backend/_internal/_queue.pyd",
+      "resources/backend/_internal/_socket.pyd",
+      "resources/backend/_internal/_ssl.pyd",
+      "resources/backend/_internal/_uuid.pyd",
+      "resources/backend/_internal/_zoneinfo.pyd",
+      "vk_swiftshader.dll",
+      "vulkan-1.dll"
+    ],
+    "selectedFiles": [
+      {
+        "path": "LICENSE",
+        "bytes": 1096,
+        "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d"
+      },
+      {
+        "path": "LICENSE.electron.txt",
+        "bytes": 1096,
+        "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d"
+      },
+      {
+        "path": "LICENSES.chromium.html",
+        "bytes": 20477229,
+        "sha256": "e6e6b1f9cb0f32235412be113de7716333e88121f9159a0ea0ff3be652021af7"
+      },
+      {
+        "path": "resources/backend/easyai-sidecar.exe",
+        "bytes": 7913738,
+        "sha256": "1b7de38b34d8e2e857883fe5ef88157bd4ad504157217a3b30338a7dddb149ee"
+      },
+      {
+        "path": "resources/backend/_internal/libcrypto-3.dll",
+        "bytes": 5191960,
+        "sha256": "05fe080eab7fc535c51e10c1bd76a2f3e6217f9c91a25034774588881c3f99de"
+      },
+      {
+        "path": "resources/backend/_internal/libffi-8.dll",
+        "bytes": 39696,
+        "sha256": "eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a"
+      },
+      {
+        "path": "resources/backend/_internal/python311.dll",
+        "bytes": 5800216,
+        "sha256": "0817a2a657a24c0d5fbb60df56960f42fc66b3039d522ec952dab83e2d869364"
+      },
+      {
+        "path": "resources/backend/_internal/VCRUNTIME140.dll",
+        "bytes": 119192,
+        "sha256": "4d292623516f65c80482081e62d5dadb759dc16e851de5db24c3cbb57b87db83"
+      },
+      {
+        "path": "resources/backend/_internal/ucrtbase.dll",
+        "bytes": 1361448,
+        "sha256": "2e5fb14b7bf8540278f3614a12f0226e56a7cc9e64b81cbd976c6fcf2f71cbfb"
+      },
+      {
+        "path": "resources/backend/_internal/cryptography-50.0.2.dist-info/sboms/sbom.json",
+        "bytes": 1223,
+        "sha256": "5b5eea08dd952a16eef188f7a85ad439a4409efa0e2bce9ca339a4de9c8db3f0"
+      },
+      {
+        "path": "resources/backend/_internal/cryptography-50.0.2.dist-info/sboms/cryptography-rust.cyclonedx.json",
+        "bytes": 45629,
+        "sha256": "246af194b4c524807c5aaffd2b7ff86c2c9bee3eb3fceeac987709ad76e4e7ef"
+      }
+    ],
+    "peVersionStrings": {
+      "python311.dll": "3.11.9",
+      "VCRUNTIME140.dll": "14.38.33126.1",
+      "ucrtbase.dll": "10.0.26100.1742"
+    },
+    "libcryptoVersionString": "OpenSSL 3.0.13 30 Jan 2024",
+    "cryptographyEmbeddedOpenSSLFromWheelSbom": [
+      {
+        "name": "openssl",
+        "version": "4.0.3",
+        "hashes": [
+          {
+            "alg": "SHA-256",
+            "content": "325b5c806167c13b40b1ffeadfe0248197c00eccc4cf123ec1e28d2d2fd216d9"
+          }
+        ]
+      }
+    ],
+    "cryptographyRustSbomComponents": [
+      {
+        "name": "cryptography-cffi",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-crypto",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-keepalive",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-key-parsing",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-openssl",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-x509",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "cryptography-x509-verification",
+        "version": "0.50.2",
+        "licenseExpressions": [
+          "Apache-2.0 OR BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "asn1",
+        "version": "0.24.1",
+        "licenseExpressions": [
+          "BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "asn1_derive",
+        "version": "0.24.1",
+        "licenseExpressions": [
+          "BSD-3-Clause"
+        ]
+      },
+      {
+        "name": "base64",
+        "version": "0.23.0",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "bitflags",
+        "version": "2.13.1",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "cc",
+        "version": "1.4.0",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "cfg-if",
+        "version": "1.0.4",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "find-msvc-tools",
+        "version": "0.1.9",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "foreign-types-shared",
+        "version": "0.1.1",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "foreign-types",
+        "version": "0.3.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "heck",
+        "version": "0.5.0",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "itoa",
+        "version": "1.0.18",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "libc",
+        "version": "0.2.189",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "once_cell",
+        "version": "1.21.4",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "openssl-macros",
+        "version": "0.1.1",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "openssl-sys",
+        "version": "0.9.117",
+        "licenseExpressions": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "openssl",
+        "version": "0.10.81",
+        "licenseExpressions": [
+          "Apache-2.0"
+        ]
+      },
+      {
+        "name": "pem",
+        "version": "4.0.0",
+        "licenseExpressions": [
+          "MIT"
+        ]
+      },
+      {
+        "name": "pkg-config",
+        "version": "0.3.33",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "portable-atomic",
+        "version": "1.14.0",
+        "licenseExpressions": [
+          "Apache-2.0 OR MIT"
+        ]
+      },
+      {
+        "name": "proc-macro2",
+        "version": "1.0.107",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "pyo3-build-config",
+        "version": "0.29.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "pyo3-ffi",
+        "version": "0.29.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "pyo3-macros-backend",
+        "version": "0.29.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "pyo3-macros",
+        "version": "0.29.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "pyo3",
+        "version": "0.29.2",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "quote",
+        "version": "1.0.47",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "self_cell",
+        "version": "1.3.0",
+        "licenseExpressions": [
+          "Apache-2.0 OR GPL-2.0-only"
+        ]
+      },
+      {
+        "name": "shlex",
+        "version": "2.0.1",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "syn",
+        "version": "2.0.119",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      },
+      {
+        "name": "target-lexicon",
+        "version": "0.13.5",
+        "licenseExpressions": [
+          "Apache-2.0 WITH LLVM-exception"
+        ]
+      },
+      {
+        "name": "unicode-ident",
+        "version": "1.0.24",
+        "licenseExpressions": [
+          "(MIT OR Apache-2.0) AND Unicode-3.0"
+        ]
+      },
+      {
+        "name": "vcpkg",
+        "version": "0.2.15",
+        "licenseExpressions": [
+          "MIT OR Apache-2.0"
+        ]
+      }
+    ],
+    "noticeInventoryScope": "frontend dependency graph and installed application Python metadata",
+    "noticeInventoryLegalReviewComplete": false,
+    "ffmpegDllPresent": true,
+    "ffmpegLgplNoticePresent": true
+  },
+  "preparedLicenseTexts": [
+    {
+      "path": "docs/release-drafts/licenses/LICENSE.Paramiko-4.0.0.txt",
+      "source": "https://github.com/paramiko/paramiko/blob/4.0.0/LICENSE",
+      "bytes": 26436,
+      "sha256": "5fa25bf5f395fd26e701c2e1de4ca7d162816986dc791c22f8f4226857ad1bb2",
+      "verbatimMatchesHistoricalPackage": true
+    },
+    {
+      "path": "docs/release-drafts/licenses/COPYING.PyInstaller-6.18.0.txt",
+      "source": "https://github.com/pyinstaller/pyinstaller/blob/v6.18.0/COPYING.txt",
+      "bytes": 32138,
+      "sha256": "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245",
+      "verbatimMatchesHistoricalPackage": true
+    },
+    {
+      "path": "docs/release-drafts/licenses/LICENSE.CPython-3.11.9.txt",
+      "source": "https://raw.githubusercontent.com/python/cpython/v3.11.9/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "verbatimMatchesHistoricalPackage": null
+    },
+    {
+      "path": "docs/release-drafts/licenses/THIRD-PARTY.CPython-3.11.9.rst",
+      "source": "https://raw.githubusercontent.com/python/cpython/v3.11.9/Doc/license.rst",
+      "bytes": 53753,
+      "sha256": "2b734ec5975b21b29ae8b9756a00fc3dfe701abe51687cec4c98a21c51005bca",
+      "verbatimMatchesHistoricalPackage": null
+    },
+    {
+      "path": "docs/release-drafts/licenses/LICENSE.libffi-3.4.4.txt",
+      "source": "https://raw.githubusercontent.com/libffi/libffi/v3.4.4/LICENSE",
+      "bytes": 1132,
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388",
+      "verbatimMatchesHistoricalPackage": null
+    },
+    {
+      "path": "docs/release-drafts/licenses/LICENSE.OpenSSL-Apache-2.0.txt",
+      "source": "https://raw.githubusercontent.com/openssl/openssl/openssl-3.0.13/LICENSE.txt",
+      "bytes": 10175,
+      "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+      "verbatimMatchesHistoricalPackage": null
+    }
+  ],
+  "primaryTextReferences": [
+    {
+      "file": "electron-DEPS.txt",
+      "url": "https://raw.githubusercontent.com/electron/electron/v44.9.0/DEPS",
+      "bytes": 8442,
+      "sha256": "c254ca413381a28243b3808e10dc8842ff0bc09629e1663ee7e09ef79dd4514a"
+    },
+    {
+      "file": "cpython-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.11.9/LICENSE",
+      "bytes": 13936,
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+    },
+    {
+      "file": "cpython-license.rst",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.11.9/Doc/license.rst",
+      "bytes": 53753,
+      "sha256": "2b734ec5975b21b29ae8b9756a00fc3dfe701abe51687cec4c98a21c51005bca"
+    },
+    {
+      "file": "libffi-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/libffi/libffi/v3.4.4/LICENSE",
+      "bytes": 1132,
+      "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+    },
+    {
+      "file": "openssl3-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/openssl/openssl/openssl-3.0.13/LICENSE.txt",
+      "bytes": 10175,
+      "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+    },
+    {
+      "file": "openssl4-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/openssl/openssl/openssl-4.0.3/LICENSE.txt",
+      "bytes": 10175,
+      "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+    },
+    {
+      "file": "paramiko-init.txt",
+      "url": "https://raw.githubusercontent.com/paramiko/paramiko/4.0.0/paramiko/__init__.py",
+      "bytes": 3523,
+      "sha256": "694f95858896e5a209a2c9ae3de4ad791d61e4678b39736a75ca646a272c0b08"
+    },
+    {
+      "file": "electron-build-args.gn",
+      "url": "https://raw.githubusercontent.com/electron/electron/v44.9.0/build/args/all.gn",
+      "bytes": 4609,
+      "sha256": "c1651cdb931dc6d9ea35e45866f9028eb789165bb76ccac158fc0d27778fa361"
+    },
+    {
+      "file": "electron-ffmpeg-patches.txt",
+      "url": "https://github.com/electron/electron/blob/v44.9.0/patches/ffmpeg/.patches",
+      "bytes": 28,
+      "sha256": "eb2ff86699f3aa0f6ac1b484a8c8a117a3149465273699e136e132024e38e7c6",
+      "gitBlob": "31dc878c5b29cffe0cc6ec03861f25880f913b80"
+    },
+    {
+      "file": "electron-ffmpeg-link.patch",
+      "url": "https://github.com/electron/electron/blob/v44.9.0/patches/ffmpeg/link_with_loader_path.patch",
+      "bytes": 1219,
+      "sha256": "bc6cdc29ad4ec2641dd59b4c3a25375b9166c35e202e5122cb73190885ec647d",
+      "gitBlob": "2b0311ce5bca38db638f54b1ffc29d5325e6d3e7"
+    },
+    {
+      "file": "chromium-DEPS-mirror.txt",
+      "url": "https://github.com/chromium/chromium/blob/152.0.7977.167/DEPS",
+      "bytes": 194497,
+      "sha256": "c3cd8ae90218c260d5fadbe5d9095164693fe420812218a18dfcf65c3f1743b9",
+      "gitBlob": "3a60b026a4e39b2eff1ed9ab860107e9e9f57b83"
+    }
+  ],
+  "notFulfilled": [
+    "exact-current-Windows-bytes-and-native-license-audit",
+    "Paramiko-corresponding-source-hosting",
+    "verified-modified-library-rebuild-materials",
+    "FFmpeg-exact-source-patches-configuration-and-rebuild-materials",
+    "Microsoft-DLL-redistribution-provenance",
+    "rights-holder-choice-of-own-work-permissions"
+  ],
+  "newProjectLicenseGranted": false,
+  "threeYearWrittenOfferMade": false,
+  "upstreamReadFailuresThisReview": [
+    {
+      "resource": "Chromium 152.0.7977.167 DEPS text",
+      "url": "https://chromium.googlesource.com/chromium/src/+/152.0.7977.167/DEPS?format=TEXT",
+      "status": 503,
+      "retried": false,
+      "sameEndpointRetried": false,
+      "officialSourceMirrorReadSucceeded": true
+    }
+  ]
+}
