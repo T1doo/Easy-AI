@@ -1,6 +1,7 @@
 import { test, expect, type ElectronApplication } from "@playwright/test";
 import path from "node:path";
-import { mkdtemp, mkdir, readFile, rm } from "node:fs/promises";
+import { createHash } from "node:crypto";
+import { mkdtemp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { launchDesktop, projectPicker } from "./desktop.js";
 
@@ -82,6 +83,59 @@ test("secure desktop, Dataset error repair, Monaco and saved project reopen", as
     await expect(
       symbols.getByRole("button", { name: /^train_data/ }),
     ).toBeVisible();
+    if (process.env.EASYAI_UI_SCREENSHOT_DIRECTORY) {
+      const output = path.resolve(process.env.EASYAI_UI_SCREENSHOT_DIRECTORY);
+      await mkdir(output, { recursive: true });
+      const editor = page.getByRole("region", { name: "积木工作台" });
+      const initialTab = await editor
+        .getByRole("tab", { selected: true })
+        .innerText();
+      await editor.getByRole("tab", { name: "模型结构", exact: true }).click();
+      const model = editor.getByRole("tabpanel", {
+        name: "模型结构",
+        exact: true,
+      });
+      await expect(model).toBeVisible();
+      await expect(
+        model
+          .locator(".blocklySvg .blocklyWorkspace > .blocklyBlockCanvas")
+          .first(),
+      ).toContainText("MnistCNN");
+      await page.evaluate(async () => {
+        await document.fonts.ready;
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+        );
+      });
+      const png = await editor.screenshot({
+        path: path.join(output, "mnist-model.png"),
+        animations: "disabled",
+      });
+      expect(png.length).toBeLessThanOrEqual(1024 * 1024);
+      await writeFile(
+        path.join(output, "screenshot-receipt.json"),
+        JSON.stringify(
+          {
+            sourceCommit: process.env.GITHUB_SHA ?? null,
+            workflowRun: process.env.GITHUB_RUN_ID ?? null,
+            platform: rendererSecurity.platform,
+            packaged: identity.packaged,
+            rendererSandboxed: rendererSecurity.processes.every(
+              (metric) => metric.sandboxed === true,
+            ),
+            scenario: "Real MNIST example model editor; no training started",
+            file: "mnist-model.png",
+            bytes: png.length,
+            sha256: createHash("sha256").update(png).digest("hex"),
+            width: png.readUInt32BE(16),
+            height: png.readUInt32BE(20),
+          },
+          null,
+          2,
+        ) + "\n",
+      );
+      await editor.getByRole("tab", { name: initialTab, exact: true }).click();
+    }
     const compile = page.getByRole("button", {
       name: "检查与编译",
       exact: true,

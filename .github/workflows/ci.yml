@@ -4,6 +4,7 @@ permissions:
   contents: read
 jobs:
   check:
+    if: github.ref != 'refs/heads/codex/ui-screenshot-20261020'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -23,6 +24,7 @@ jobs:
       - run: pnpm test
       - run: pnpm build
   desktop:
+    if: github.ref != 'refs/heads/codex/ui-screenshot-20261020'
     runs-on: windows-latest
     timeout-minutes: 15
     steps:
@@ -92,3 +94,36 @@ jobs:
             ${{ steps.candidate.outputs.directory }}/builder-manifest.json
             ${{ steps.candidate.outputs.directory }}/candidate-provenance.json
             ${{ steps.candidate.outputs.directory }}/candidate-audit.json
+  ui-screenshot:
+    if: github.ref == 'refs/heads/codex/ui-screenshot-20261020'
+    runs-on: windows-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.25.0
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: 0.12.23
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm setup
+      - run: pnpm --filter @easyai/desktop build
+      - name: Real Windows MNIST editor screenshot (no training)
+        timeout-minutes: 3
+        env:
+          EASYAI_UI_SCREENSHOT_DIRECTORY: test-results/ui-success
+        run: pnpm exec playwright test tests/e2e/startup.spec.ts
+      - name: Retain small real UI PNG and source receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: easyai-ui-png-${{ github.sha }}
+          retention-days: 1
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            test-results/ui-success/mnist-model.png
+            test-results/ui-success/screenshot-receipt.json
