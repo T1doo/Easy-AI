@@ -8,12 +8,12 @@
 
 | 材料 | 已有依据 | 实际交付状态 |
 | --- | --- | --- |
-| Paramiko 4.0.0 完整上游 sdist | `services/backend/uv.lock` 固定 URL、1630743 字节及 SHA256 `6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f` | 未下载/未上传；不是已提供 |
+| Paramiko 4.0.0 完整上游 sdist | `services/backend/uv.lock` 固定 URL、1630743 字节及 SHA256 `6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f` | 已实际取得并核对锁哈希、259 项归档目录；本地材料已备，未上传/公开提供 |
 | Paramiko 本地修改/补丁、原版权和许可 | 当前应用引用安装库；源码本地修改情况须与实际构建输入核对 | 不用“应用未改库”的推断冒充字节比对；许可证副本已备，完整源码/补丁未交付 |
-| Easy-AI 精确源码 | 目标 `1e427fb49e444f7feea451cbffd4353e8e969bed`；含运行时、合同、资源、构建脚本和锁 | Git 提交可定位；尚未验证 Release 重建材料闭包 |
-| FFmpeg 对应源码、补丁和配置 | Electron 44.9.0 → Chromium 152.0.7977.167 → FFmpeg `2b68d2babae73714846961fb0ee47e3b3d2e39a9`；Electron FFmpeg 清单含一份 macOS 条件链接补丁 | 上游修订已定位，成品对应/完整生成配置未核实，源码归档未提供；不能拿任意 FFmpeg tarball 替代 |
+| Easy-AI 精确源码 | 目标 `1e427fb49e444f7feea451cbffd4353e8e969bed`；含运行时、合同、资源、构建脚本和锁 | 已从目标提交生成 1353982 字节归档，SHA256 `c71d044125c3f3bc9d4049ceffb2fe602031a68adca4cf4415ff5e93fc394ca0`；尚未验证完整重建闭包或公开提供 |
+| FFmpeg 对应源码、补丁和配置 | Electron 44.9.0 → Chromium 152.0.7977.167 → FFmpeg `2b68d2babae73714846961fb0ee47e3b3d2e39a9`；Electron FFmpeg 清单含一份 macOS 条件链接补丁 | 已实际准备完整修订归档、补丁、GN 参数和 Chrome/win/x64 config.h，GPL/nonfree/version3 均为 0；成品对应/完整重建未核实，尚未公开上传 |
 | 构建工具与必要数据/工具程序清单 | Node 24.19.0、pnpm 11.25.0、uv 0.12.23、Windows CI CPython 3.11.9、PyInstaller 6.18.0、electron-builder 26.15.3、Electron 44.9.0；详见既有 CI/锁文件 | 版本可定位；需核对工具/二进制输入可取得及相应许可，不能仅列版本就称齐全 |
-| 修改库后的重建步骤 | `scripts/python-task.mjs`、`scripts/package-inputs.mjs`、`scripts/package-builder.mjs` 和受控来源机制 | 未执行，既有冻结锁会恢复原库；需形成并验证独立副本中使用修改库的步骤 |
+| 修改库后的重建步骤 | `scripts/python-task.mjs`、`scripts/package-inputs.mjs`、`scripts/package-builder.mjs` 和受控来源机制 | 已形成材料内 REBUILD-REVIEW.md：在独立仓库内跟踪修改库，使用本地来源生成新锁/新提交，经正常封闭输入重新构建；没有执行，不能称重建成功 |
 | 自身有限授权文本或权利人所选许可证 | 下方为未生效评审文本 | 未由权利人选定，不能改 `legalReviewComplete` 为 true |
 
 不会包含训练环境、MNIST 数据、模型、凭据、机器配置或用户项目。此处的“必要数据”指重建作品的源码资源等，并不授权自动下载训练数据。

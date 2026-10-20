@@ -712,5 +712,147 @@
       "sameEndpointRetried": false,
       "officialSourceMirrorReadSucceeded": true
     }
-  ]
+  ],
+  "actualLocalSourcePreparation": {
+    "status": "PREPARED_LOCALLY_NOT_PUBLISHED",
+    "bundleName": "easyai-source-materials-1e427fb4.zip",
+    "localPath": "/workspace/easyai-prerelease-1e427fb4/easyai-source-materials-1e427fb4.zip",
+    "bytes": 21989315,
+    "sha256": "8b1984dbcaaac226db9228bdeee8aa02eea637e5c76d236229559327b3accd91",
+    "files": 18,
+    "crcChecked": true,
+    "paramikoProjectLockMatched": true,
+    "sourceCodeInstalledOrExecuted": false,
+    "productRebuilt": false,
+    "ownLicenseChoiceMade": false,
+    "threeYearWrittenOfferMade": false,
+    "uploadedToRelease": false,
+    "materials": [
+      {
+        "file": "FFMPEG_SOURCE_FETCH.json",
+        "bytes": 859,
+        "sha256": "4744019e5be3d700f2b126d1173ec8dc680ed2ef84a166d3b6c47238f187e49c"
+      },
+      {
+        "file": "README_MAIN_MERGE.json",
+        "bytes": 852,
+        "sha256": "c301caaf23162b23513d489bfedbe0831a2d007ef3bcc560aa6c89bf07ee219b"
+      },
+      {
+        "file": "REBUILD-REVIEW.md",
+        "bytes": 4098,
+        "sha256": "be0573e831258b58953019e523ef86f4bdffa29189d2d1377d8f212b63ea7d25"
+      },
+      {
+        "file": "easyai-source-1e427fb49e444f7feea451cbffd4353e8e969bed.tar.gz",
+        "bytes": 1353982,
+        "sha256": "c71d044125c3f3bc9d4049ceffb2fe602031a68adca4cf4415ff5e93fc394ca0"
+      },
+      {
+        "file": "electron-44.9.0-build-args.gn",
+        "bytes": 4609,
+        "sha256": "c1651cdb931dc6d9ea35e45866f9028eb789165bb76ccac158fc0d27778fa361"
+      },
+      {
+        "file": "electron-44.9.0-ffmpeg-patches.txt",
+        "bytes": 28,
+        "sha256": "eb2ff86699f3aa0f6ac1b484a8c8a117a3149465273699e136e132024e38e7c6"
+      },
+      {
+        "file": "ffmpeg-2b68d2babae73714846961fb0ee47e3b3d2e39a9.tar.gz",
+        "bytes": 18820712,
+        "sha256": "b2efa6554ccfd49303794a6fc4da0e53882ccd656bf514d890fdc8a4222b6877"
+      },
+      {
+        "file": "ffmpeg-Chrome-win-x64-config.h",
+        "bytes": 25773,
+        "sha256": "4c935fe035611b9e72376de36a49539cc6a915f4cc22aeefa76c4f972193de60"
+      },
+      {
+        "file": "licenses/COPYING.PyInstaller-6.18.0.txt",
+        "bytes": 32138,
+        "sha256": "dcf75fdb959db1e3b41c0f8505069d2ece781b5ec6b3d0a4d30975cfc6580245"
+      },
+      {
+        "file": "licenses/LICENSE.CPython-3.11.9.txt",
+        "bytes": 13936,
+        "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+      },
+      {
+        "file": "licenses/LICENSE.OpenSSL-Apache-2.0.txt",
+        "bytes": 10175,
+        "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+      },
+      {
+        "file": "licenses/LICENSE.Paramiko-4.0.0.txt",
+        "bytes": 26436,
+        "sha256": "5fa25bf5f395fd26e701c2e1de4ca7d162816986dc791c22f8f4226857ad1bb2"
+      },
+      {
+        "file": "licenses/LICENSE.libffi-3.4.4.txt",
+        "bytes": 1132,
+        "sha256": "2c9c2acb9743e6b007b91350475308aee44691d96aa20eacef8e199988c8c388"
+      },
+      {
+        "file": "licenses/THIRD-PARTY.CPython-3.11.9.rst",
+        "bytes": 53753,
+        "sha256": "2b734ec5975b21b29ae8b9756a00fc3dfe701abe51687cec4c98a21c51005bca"
+      },
+      {
+        "file": "link_with_loader_path.patch",
+        "bytes": 1219,
+        "sha256": "bc6cdc29ad4ec2641dd59b4c3a25375b9166c35e202e5122cb73190885ec647d"
+      },
+      {
+        "file": "paramiko-4.0.0.tar.gz",
+        "bytes": 1630743,
+        "sha256": "6a25f07b380cc9c9a88d2b920ad37167ac4667f8d9886ccebd8f90f654b5d69f"
+      }
+    ],
+    "ffmpegSourceReadReceipt": {
+      "source": "https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/2b68d2babae73714846961fb0ee47e3b3d2e39a9.tar.gz",
+      "revision": "2b68d2babae73714846961fb0ee47e3b3d2e39a9",
+      "attempts": 1,
+      "complete": true,
+      "archiveAudited": true,
+      "executedOrInstalled": false,
+      "bytes": 18820712,
+      "sha256": "b2efa6554ccfd49303794a6fc4da0e53882ccd656bf514d890fdc8a4222b6877",
+      "entries": 11339,
+      "unpackedBytes": 97120801,
+      "licensePaths": [
+        "COPYING.GPLv2",
+        "COPYING.LGPLv2.1",
+        "LICENSE.md"
+      ],
+      "archiveAuditScope": "tar directory, path types, license presence and Chrome/win/x64 configuration only; no binary correspondence/rebuild proof",
+      "sourceBinaryCorrespondenceVerified": false,
+      "nonRegularEntries": [],
+      "upstreamChromeWinX64Config": {
+        "CONFIG_GPL": 0,
+        "CONFIG_NONFREE": 0,
+        "CONFIG_VERSION3": 0
+      }
+    }
+  },
+  "readmeMainMerge": {
+    "pr": "https://github.com/T1doo/Easy-AI/pull/2",
+    "baseCommit": "1e427fb49e444f7feea451cbffd4353e8e969bed",
+    "mergeCommit": "68b834680bb0e824dda34a8d2f9a003512dfe90e",
+    "changedFiles": [
+      "README.md"
+    ],
+    "readmeByteDelta": 1,
+    "actualMainReadmeBlob": "c37a9dcf1513ed908a57982bcace670a7ae00311",
+    "actualMainGithubRender": "PASS",
+    "htmlSha256": "5f2a27281ab4b85a124e64c11d001e526fafe7e071f6a510fd2b91e252318e00",
+    "allTrackedFilesExceptReadmeTreeFingerprintSha256": "6f4718775a94c2e7df388ebd4452b767cb22929327854e626dbe760586e1917b",
+    "originalDocuments": {
+      "docs/v0.0.0 plan.md": "dade1fcaadac319e130de415b48154601254dcae9b148a2d42475fb82205fa43",
+      "docs/v0.0.0.md": "5808fb59fb32917ef92d6a516609d51adecc8830fa1bb736222b43f1a134b190"
+    },
+    "licenseDraftsMerged": false,
+    "productTestsRerun": false,
+    "ciRequested": false
+  }
 }
