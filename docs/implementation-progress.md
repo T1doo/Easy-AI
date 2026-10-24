@@ -3861,3 +3861,15 @@ Windows job118498326810全部SUCCESS：持久化/编译golden与原生安全、�
 本次完整解码日志私有保全：Linux SHA256 7b5c42e5ad84231371fa6acc4e29fd56c240961ced7d61cfd206fcc662f086ca；Windows 699a550a8dd6b66e86685c714cfec50c9825926a2c0d41a0606423c316a60011；两job/全部steps和artifact原元数据收据 f014924b14bb6341be00d16515ba6495d85047f2b0be6eaa735c429f95d60b07。此前605/55d/e656的FAIL及受控反例继续保留，没有无变更重跑或把旧绿灯转给新SHA。代码与测试已独立只读复审限定ACK，未发现剩余确定P1/P2，不作绝对无漏洞保证。
 
 末次仅回填证据文档并明确[skip ci]，全GREEN仍只绑定上述0e1e1b2源码。原计划SHA256 dade1fcaadac319e130de415b48154601254dcae9b148a2d42475fb82205fa43、原需求5808fb59fb32917ef92d6a516609d51adecc8830fa1bb736222b43f1a134b190，README/两锁与main5323f86232529efcfb52131168ad049f01b219f3保持。合并/Release/部署继续HOLD；正式十轮、真实SSH、干净Win11、实际安装、CIFAR安全构造与三不支持包组的外部条件仍未关闭，详见remaining-critical-path与m6-compatibility-review。没有新增训练、数据下载、真实模型调用、用户设备操作、凭据、安全权限或费用。
+
+## 2026-10-24 M2.4→M3 本地终态恢复一致性修复候选
+
+基线为 `8cf504e3d23485a19ead3bd58de6699f1180f86f`，开始时与同名远端开发分支一致且工作区干净；只读核对 Bundle 文件摘要、精确保存快照、运行配置比较、幂等/单次启动及事件回放，不重做日志查看器、TST34、截图或上游打包。main `68b834680bb0e824dda34a8d2f9a003512dfe90e` 未修改；原计划与原需求 SHA256 保持原值。
+
+发现并实际复现两处源码缺陷。第一，运行正常退出并发出完成协议但缺必需产物时，原运行变为 FAILED/error；若终态应用日志 fsync 后目录索引写入失败，恢复会无条件重置为 FAILED/complete。现在终态日志同时保存 syncState，恢复通过原 Run 合同验证并还原；没有该字段的旧日志仍按原 complete 行为读取。第二，运行管理器在子进程已创建后发生管理失败，会写 process_exited/managementFailed=true；原恢复忽略该标志，退出码为0且产物完整时可误判 SUCCEEDED。现在该管理失败证据优先判 FAILED，与实时管理器一致。没有更改 Bundle 格式、后端协议预算、训练生成代码或成功产物要求。
+
+新增合成协议崩溃窗口回归：明确在测试临时目录生成事件和标明 synthetic 的完整性检查字节，不启动子进程、不加载模型或解码图片。覆盖产物完整的 SUCCEEDED/complete、必需产物缺失的 FAILED/error、管理失败且产物完整的 FAILED/complete；每项均在终态日志已持久化而目录索引写入失败后重建服务，并验证重读不重复、终态不再启动。前两种缺陷分别实际观察到 complete≠error 和 SUCCEEDED≠FAILED 的失败断言，修复后通过；不是用手工终态事件替代这三个生产归约路径。
+
+旧应用 venv 的解释器指向已失效的临时目录，首次 pytest 未启动，不能记为 FAIL 测试执行或 PASS。随后按既有 uv.lock 在仓库外独立目录恢复 CPython3.11.17 应用开发环境，冻结安装43项应用/开发依赖；未安装 torch/torchvision、未变更共享训练环境，锁文件零改。当前实际定向验证为 test_run_state_recovery.py、test_run_recovery.py、test_run_service.py、test_supervisor.py、test_event_journal.py 共73项 PASS，1条既有 Starlette/AnyIO 弃用警告；其中 supervisor 测试只运行标准库协议子进程。ruff check/format 与 mypy70个源码文件 PASS，git diff --check PASS。没有运行完整前端/构建/Windows/新CI；旧全绿证据不转移到此候选。
+
+本节是待独立审查的正常开发分支候选记录，不声明已独审或已推送。独审通过前保持本地冻结，后续推送与CI必须分别报告实际结果。未运行真实训练/数据下载/SSH/受控训练安装，也未操作用户电脑、main、Feng5u Actions、Release 或部署；完整A/B与正式十轮、真实SSH、干净Windows实测边界保持。

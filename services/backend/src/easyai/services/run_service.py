@@ -597,6 +597,7 @@ class RunService:
     def _fold_status(self, run_id: str, events: list[Event]) -> None:
         # Application journal is the durable fact; catalog is its replaceable cache.
         previous: str | None = None
+        sync_state: object = "complete"
         for event in events:
             if event.source != "application" or event.type != "status_changed":
                 continue
@@ -614,6 +615,7 @@ class RunService:
             if previous in TERMINAL and status != previous:
                 raise ValueError("RUN_TERMINAL_CONFLICT")
             previous = status
+            sync_state = event.payload.get("syncState", "complete")
         run = self._ledger.entries[run_id].run
         phases = {
             "CREATED": 0,
@@ -638,7 +640,7 @@ class RunService:
             updated = run.model_dump()
             updated["status"] = previous
             if previous in TERMINAL:
-                updated["sync_state"] = "complete"
+                updated["sync_state"] = sync_state
             self._ledger.entries[run_id].run = Run.model_validate(updated)
             self._persist()
 
@@ -709,7 +711,10 @@ class RunService:
                     ):
                         raise ValueError("RUN_EXIT_EVIDENCE_INVALID")
                     kinds = [event.type for event in events]
-                    if "runtime_error" in kinds:
+                    if (
+                        "runtime_error" in kinds
+                        or exited[0].payload.get("managementFailed") is True
+                    ):
                         outcome = "FAILED"
                     elif (
                         exited[0].payload["exitCode"] == 0
@@ -738,7 +743,9 @@ class RunService:
                 "error" if outcome == "COMPLETED" and run.status == "FAILED" else "complete"
             )
             run.connection_state = "connected"
-            journal.append("status_changed", None, {"status": run.status})
+            journal.append(
+                "status_changed", None, {"status": run.status, "syncState": run.sync_state}
+            )
             self._persist()
             all_events = journal.after(0)
             changed = True
